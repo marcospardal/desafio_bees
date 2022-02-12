@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import * as Style from './home.styles'
 import BeeIcon from '../../assets/images/bee.svg'
 
-interface UserData {
-  name: string;
-  isOlder: boolean;
-}
+// interfaces
+import { UserData } from '../../store/ducks/userData/types'
+import { RootStore } from '../../store'
+
+// actions 
+import { addUser } from '../../store/ducks/userData/actions'
+
 
 const Home = () => {
   const [userData, setUserData] = useState<UserData>({ name: '', isOlder: false });
+  const dados = useSelector((state: RootStore) => state.UserDataReducer.userData)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    dispatch(addUser(userData));
+    //navigate('/list')
+  }
 
   return (
     <Style.Container>
@@ -31,7 +44,11 @@ const Home = () => {
         />
         <Style.Instructions>Are you older than 18 years old?</Style.Instructions>
       </Style.Row>
-      <Style.Submit isDisabled={userData.name === '' || !userData.isOlder} disabled={userData.name === '' || !userData.isOlder}>
+      <Style.Submit 
+        isDisabled={userData.name === '' || !userData.isOlder} 
+        disabled={userData.name === '' || !userData.isOlder}
+        onClick={handleSubmit}
+      >
         Enter
       </Style.Submit>
       <Style.Bee src={BeeIcon} alt='Ícone Abelha'/>
