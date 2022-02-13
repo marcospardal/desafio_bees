@@ -7,21 +7,21 @@ import BeeIcon from '../../assets/images/bee.svg'
 
 // interfaces
 import { UserData } from '../../store/ducks/userData/types'
-import { RootStore } from '../../store'
 
 // actions 
 import { addUser } from '../../store/ducks/userData/actions'
+import { getCards } from '../../store/ducks/cards/actions';
 
 
 const Home = () => {
   const [userData, setUserData] = useState<UserData>({ name: '', isOlder: false });
-  const dados = useSelector((state: RootStore) => state.UserDataReducer.userData)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     dispatch(addUser(userData));
-    //navigate('/list')
+    dispatch(getCards())
+    navigate('/list')
   }
 
   return (
@@ -51,7 +51,7 @@ const Home = () => {
       >
         Enter
       </Style.Submit>
-      <Style.Bee src={BeeIcon} alt='Ícone Abelha'/>
+      <Style.Bee src={BeeIcon} alt='Bee Icon'/>
     </Style.Container>
   )
 };

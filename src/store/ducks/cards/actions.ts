@@ -17,6 +17,7 @@ export const getCards = () => async (dispatch: Dispatch<CardsDispatchTypes>) => 
         type: card.brewery_type,
         postalCode: card.postal_code,
         telephone: card.phone,
+        street: card.street
       }
     })
 

@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import store from './store'
 
 // views
-import { Home } from './views';
+import { Home, ListPage } from './views';
 
 // theme
 import { theme } from './UI/theme'
@@ -20,6 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />}/>
+            <Route path='/list' element={<ListPage />}/>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

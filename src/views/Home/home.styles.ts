@@ -38,8 +38,8 @@ export const Submit = styled.button<SubmitBtn>`
   border-radius: 4px;
   border: none;
   padding: 8px 16px;
-  background: ${({ theme }) => theme.palette.grey['600']};
-  color: ${({ theme, isDisabled }) => !isDisabled ? theme.palette.white : theme.palette.grey['500']};
+  background: ${({ theme, isDisabled }) => isDisabled ? theme.palette.gray['600'] : theme.palette.enabled};
+  color: ${({ theme }) => theme.palette.white};
   margin: 30px 0;
   cursor: ${({ isDisabled }) => !isDisabled ? 'pointer' : ''};
 `

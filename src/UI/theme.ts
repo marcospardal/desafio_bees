@@ -3,7 +3,8 @@ export const theme = {
     primary: '#F2EC54',
     secondary: '#FFFEF0',
     white: '#FFFFFF',
-    grey: {
+    enabled: '#5D5FEF',
+    gray: {
       "500": '#71717A',
       "600": '#52525B',
       "700": '#3F3F46',
@@ -25,6 +26,11 @@ export const theme = {
     h1: {
       fontSize: '30px',
       lineHeight: '45px'
+    },
+
+    h2: {
+      fontSize: '20px',
+      lineHeight: '30px'
     }
   }
 }

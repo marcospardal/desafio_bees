@@ -25,6 +25,7 @@ export interface Card {
   title: string;
   city: string;
   state: string;
+  street: string;
   country: string;
   type: string;
   postalCode: string;
