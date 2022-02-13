@@ -37,8 +37,8 @@ const ListPage = () => {
       </Style.NavBar>
       <Style.Content>
         {cardsData.loading ? <Style.Loader /> : 
-          cardsData.data.map((card: CardType) => (
-            <Card card={card} />
+          cardsData.data.map((card: CardType, index) => (
+            <Card card={card} id={index} />
           ))
         }
       </Style.Content>

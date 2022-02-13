@@ -2,6 +2,7 @@
 export const CARDS_LOADING = 'CARDS_LOADING';
 export const CARDS_SUCCESS = 'CARDS_SUCCESS';
 export const CARDS_FAIL = 'CARDS_FAIL';
+export const REMOVE_CARD = "REMOVE_CARD";
 
 interface CardsLoading {
   type: typeof CARDS_LOADING,
@@ -18,7 +19,14 @@ interface CardsFail {
   type: typeof CARDS_FAIL
 }
 
-export type CardsDispatchTypes = CardsLoading | CardsSuccess | CardsFail
+interface RemoveCard {
+  type: typeof REMOVE_CARD,
+  data: {
+    cardId: number;
+  }
+}
+
+export type CardsDispatchTypes = CardsLoading | CardsSuccess | CardsFail | RemoveCard
 
 // data type 
 export interface Card {

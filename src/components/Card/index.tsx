@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 
 import { Card as CardType } from '../../store/ducks/cards/types';
 
@@ -11,17 +12,30 @@ import Chart from '../../assets/images/chart.svg'
 import Phone from '../../assets/images/phone.svg'
 import Plus from '../../assets/images/plus-circle.svg'
 
+// actions
+import { removeCard } from '../../store/ducks/cards/actions'
+
 interface CardProps {
-  card: CardType
+  card: CardType,
+  id: number
 }
 
-const Card = ({ card }: CardProps) => {
+const Card = ({ card, id }: CardProps) => {
   const [addMore, setAddMore] = useState<boolean>(false)
   const [newData, setNewData] = useState<string>('')
 
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(removeCard(id))
+  }
+
   return(
     <Style.Card>
-      <Style.CardTitle>{card.title}</Style.CardTitle>
+      <Style.Row>
+        <Style.CardTitle>{card.title}</Style.CardTitle>
+        <Style.DeleteIcon src={DeleteIcon} alt='Delete Icon' onClick={handleDelete}/>
+      </Style.Row>
       <div>
         <Style.CardInfo>{card.street}</Style.CardInfo>
         <Style.CardInfo>{card.state}, {card.city} - {card.country}</Style.CardInfo>

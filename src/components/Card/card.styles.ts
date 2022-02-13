@@ -58,3 +58,17 @@ export const Input = styled.input`
   margin: 16px 0;
   padding: 10px 12px;
 `
+
+export const DeleteIcon = styled.img`
+  height: 16px;
+  width: 14px;
+  top: 14px;
+  right: 15px;
+  cursor: pointer;
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
