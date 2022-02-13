@@ -2,16 +2,26 @@ import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh;
-  min-width: 90vw;
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.palette.secondary};
 `
 
-export const Content = styled.div`
+export const Content = styled.div`  
   padding: 100px;
   display: grid;
   grid-template-columns: auto auto auto;
+  width: 100vw;
+
+  @media (max-width: 1600px) {
+    grid-template-columns: auto auto;
+    padding: 50px;
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: auto;
+    padding: 30px;
+  }
 `
 
 export const NavBar = styled.nav`
@@ -20,6 +30,7 @@ export const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   max-height: 72px;
+  min-width: 100%
 `
 
 export const GoBackIcon = styled.img`

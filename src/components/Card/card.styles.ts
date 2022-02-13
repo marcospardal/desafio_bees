@@ -11,6 +11,10 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 48px;
+
+  @media (max-width: 700px) {
+    width: 300px
+  }
 `
 
 export const CardTitle = styled.h2`
