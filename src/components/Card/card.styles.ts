@@ -49,3 +49,12 @@ export const CardIcon = styled.img`
 export const AddMoreIcon = styled(CardIcon)`
   cursor: pointer;
 `
+
+export const Input = styled.input`
+  border: 1px solid #D4D4D8;
+  width: 83px;
+  max-height: 20px;
+  border-radius: 4px;
+  margin: 16px 0;
+  padding: 10px 12px;
+`

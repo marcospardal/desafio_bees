@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Card as CardType } from '../../store/ducks/cards/types';
 
@@ -16,6 +16,9 @@ interface CardProps {
 }
 
 const Card = ({ card }: CardProps) => {
+  const [addMore, setAddMore] = useState<boolean>(false)
+  const [newData, setNewData] = useState<string>('')
+
   return(
     <Style.Card>
       <Style.CardTitle>{card.title}</Style.CardTitle>
@@ -37,8 +40,20 @@ const Card = ({ card }: CardProps) => {
           {card.telephone}
         </Style.CardItems>
         <Style.CardItems>
-          <Style.AddMoreIcon src={Plus} alt='Add'/>
-          add more
+          <Style.AddMoreIcon 
+            src={Plus} 
+            alt='Add'
+            onClick={() => setAddMore(true)}
+          />
+            {addMore ? 
+              <Style.Input 
+                value={newData}
+                onChange={(e) => setNewData(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') setAddMore(false)
+                }}
+              /> 
+              : newData !== '' ? newData : 'add more'}
         </Style.CardItems>
       </Style.CardFooter>
     </Style.Card>
